@@ -1,8 +1,3 @@
-.giphy-btn {
-    content: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTYgNWgydjJINlY1eiBtNi0wLjV2OS41YzAgMC41NS0wLjQ1IDEtMSAxSDFjLTAuNTUgMC0xLTAuNDUtMS0xVjJjMC0wLjU1IDAuNDUtMSAxLTFoNy41bDMuNSAzLjV6IG0tMSAwLjVMOCAySDF2MTFsMy01IDIgNCAyLTIgMyAzVjV6IiAvPgo8L3N2Zz4K');
-    color: #767676;
-}
-
 .giphy-widget {
     display: inline-block;
     width: 280px;
@@ -88,4 +83,9 @@
 
 .giphy-widget li:nth-child(odd) {
     margin-right: 2%;
+}
+
+/* Styles to override Refined GitHub and play nicely */
+.toolbar-group .toolbar-item.js-giphy-btn {
+    display: block;
 }
