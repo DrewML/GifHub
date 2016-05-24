@@ -1,6 +1,7 @@
 import {
     addBtnToToolbars,
     onPartialRender,
+    addBtnToNewInlineComments,
     onGiphyBtnClick,
     insertTextAtCursor
 } from './page';
@@ -17,6 +18,7 @@ window.$ = window.require('jquery');
 
 addBtnToToolbars();
 onPartialRender(addBtnToToolbars);
+addBtnToNewInlineComments();
 
 onGiphyBtnClick(({ form, button, input }) => {
     const onSelection = function onSelection(data) {

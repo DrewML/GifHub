@@ -11,6 +11,17 @@ export function onPartialRender(cb) {
     $(document).on('pjax:success', cb);
 }
 
+// adds giphy button when editing new inline comments
+export function addBtnToNewInlineComments() {
+    $(document).on('click', '.js-inline-comments-container .comment.previewable-edit .js-comment-edit-button', e => {
+        const addedComment = $(e.target).closest('.comment.previewable-edit').find('.toolbar-group:last-child');
+        if (addedComment.find('.js-giphy-btn').length > 0) {
+            return;
+        }
+        addedComment.append(btnTemplate);
+    });
+}
+
 export function onGiphyBtnClick(cb) {
     $(document).on('click', '.js-giphy-btn', ({ currentTarget: el }) => (
         cb({
