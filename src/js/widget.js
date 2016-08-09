@@ -27,7 +27,7 @@ export default {
     },
 
     setupListeners() {
-        this.$input.on('keydown', e => {
+        this.$input.on('keyup', e => {
             this.onSearchStart();
             this.onTextChange(e.currentTarget.value);
         });
