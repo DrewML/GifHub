@@ -32,15 +32,6 @@ export function onGiphyBtnClick(cb) {
     ));
 }
 
-export function getAuthenticityToken() {
-    return $('input[name="authenticity_token"]').val();
-}
-
-export function getPreviewUri() {
-    return $('.js-previewable-comment-form')
-        .attr('data-preview-url');
-}
-
 export function insertTextAtCursor(textarea, text) {
     const pos = textarea.selectionStart;
     const currentVal = textarea.value;

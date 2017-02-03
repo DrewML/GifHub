@@ -1,22 +1,22 @@
-import { getAuthenticityToken, getPreviewUri } from './page';
-
 function getMarkdownPreview(text) {
-    // Upgrade jQuery deferred to an ES6 Promise
-    return Promise.resolve($.ajax({
+    return fetch('https://api.github.com/markdown', {
         method: 'POST',
-        url: getPreviewUri(),
-        data: {
-            authenticity_token: getAuthenticityToken(),
+        headers: {
+            "Content-Type" : "application/json",
+            "Accept": "application/vnd.github.v3+json",
+        },
+        body : JSON.stringify({
+            mode: 'markdown',
             text
-        }
-    }));
+        }),
+    }).then(res => res.text())
 }
 
 export function bypassCSPForImages(images = []) {
     const markdown = images.map(image => (
         `![${image.name}](${image.uri}) ![downsized](${image.downsizedUri})`
     )).join('\n\n');
-
+    
     return getMarkdownPreview(markdown).then(res => {
         const $res = $(res);
         return Array.from($res.filter('p')).map(p => {
